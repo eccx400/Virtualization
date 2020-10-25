@@ -67,7 +67,7 @@
     | IA32_VMX_EXIT_CTLS               | 0x483    | Use this MSR for exit controls if no true controls capability     |
     | IA32_VMX_ENTRY_CTLS              | 0x484    | Use this MSR for entry controls if no true controls capability    |
 
-    In the cmpe283-1.c file, there is a function called `void detect_vmx_features(void)` that reads in the MSR index and returns the 64bit MSR number in 2 32 bit segments. The high bits is shifted by 32 and then or'd with the low bits to generate the whole 64 bit `procbased ctrls`.
+    In the cmpe283-1.c file, there is a function called `void detect_vmx_features(void)` that reads in the MSR index and returns the 64-bit MSR number in 2 32-bit segments. The high bits is shifted by 32 and then or'd with the low bits to generate the whole 64-bit `procbased ctrls`.
 In the same function, `report_capability` returns the rest of the output, which includes interrupt exiting, NMI exiting, Virtual NMIs, VMX timer settings, and process posted interrupt settings.
 
     With the cmpe283-1.c file and the Makefile in the same directory, you run `make` to start the compiling process. The Makefile should generate a few other files, the most important being the cmpe-283-1.ko file. You then run the command `sudo insmod ./cmpe283-1.ko` followed by dmesg to see the output. After that, you can change the MSR index in the cmpe283-1.c to the ones listed above, and then recompile with the same commands for more outputs. Between each `make` and `insmod` command, you can run a command `sudo rmmod cmpe283-1` to end the insmod process so that you can run recompile the program again without a file exists error. Finally, you can check the `procbased ctrls` to see if the outputs are correct.
