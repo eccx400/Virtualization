@@ -55,7 +55,7 @@
 
 1. I did the project myself.
 
-2. For this project, start by setting up the Virtualization environment. For this project, you need to set up a Virtualization environment where the VMX nested virtualization feature is enabled. In Virtualbox on an Intel machine, that requires the use of VBoxManage in order to check the nested virtualization checkbox in the VM settings. Configurations can be found [here](https://youtube.com/watch?v=JMT2qimlL9Q&ab_channel=DavidBombal). You can check if the setup is correct by running `<section>cat /proc/cpuinfo | more</section>`, and if you see <b>vmx</b> under flags the setup is correct. 
+2. For this project, start by setting up the Virtualization environment. For this project, you need to set up a Virtualization environment where the VMX nested virtualization feature is enabled. In Virtualbox on an Intel machine, that requires the use of VBoxManage in order to check the nested virtualization checkbox in the VM settings. Configurations can be found [here](https://www.youtube.com/watch?v=JMT2qimIL9Q&ab_channel=DavidBombal). You can check if the setup is correct by running `<section>cat /proc/cpuinfo | more</section>`, and if you see <b>vmx</b> under flags the setup is correct. 
   
     Next, download the cmpe283-1.c and the Makefile to your documents. For this project you will change the MSR index in the cmpe283-1.c file in the line `<section>#define IA32_VMX_PINBASED_CTLS</section>`. Each change in the MSR index will generate a different output for kernel info. The table for the MSR indexes used are listed below:
 
