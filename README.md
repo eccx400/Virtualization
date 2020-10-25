@@ -5,6 +5,7 @@
 ## Table of contents
 * [Output](#output)
 * [Answers](#answers)
+* [Technologies](#technologies)
 
 ## Output
 
@@ -51,3 +52,11 @@
 ```
 
 ## Answers
+
+1. I did the project myself.
+
+2. For this project, start by setting up the Virtualization environment. For this project, you need to set up a Virtualization environment where the VMX nested virtualization feature is enabled. In Virtualbox on an Intel machine, that requires the use of VBoxManage in order to check the nested virtualization checkbox in the VM settings. Configurations can be found [here](https://youtube.com/watch?v=LKJyNYxDlyo&ab_channel=dolastackdevops).
+
+## Technologies
+* Ubuntu on Oracle Virtualbox
+
