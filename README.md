@@ -17,14 +17,6 @@
 [ 2540.184773]   Activate VMX Preemption Timer: Can set=No, Can clear=Yes
 [ 2540.184774]   Process Posted Interrupts: Can set=No, Can clear=Yes
 [ 2766.129359] CMPE 283 Assignment 1 Module Exits
-[ 2770.550653] CMPE 283 Assignment 1 Module Start
-[ 2770.550657] Pinbased Controls MSR: 0xf7b9fffe0401e172
-[ 2770.550658]   External Interrupt Exiting: Can set=No, Can clear=Yes
-[ 2770.550659]   NMI Exiting: Can set=Yes, Can clear=Yes
-[ 2770.550659]   Virtual NMIs: Can set=Yes, Can clear=No
-[ 2770.550660]   Activate VMX Preemption Timer: Can set=Yes, Can clear=No
-[ 2770.550661]   Process Posted Interrupts: Can set=Yes, Can clear=Yes
-[ 2827.649070] CMPE 283 Assignment 1 Module Exits
 [ 2829.936486] CMPE 283 Assignment 1 Module Start
 [ 2829.936491] Pinbased Controls MSR: 0xf7b9fffe0401e172
 [ 2829.936492]   External Interrupt Exiting: Can set=No, Can clear=Yes
