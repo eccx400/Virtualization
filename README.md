@@ -1,3 +1,3 @@
 # Virtualization
 
-This repository handles modules done to test Virtual Machine Capabilities. More Information can be found in the subfolders.
+This repository contains programs testing Virtual Machine capabilities. More Information can be found in the subfolder README.md files.
