@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Virtualization
-=======
 # VMX_config
 
 > Create a linux kernel module that queries various MSR to determine virtualization features of the CPU
@@ -78,4 +75,3 @@ In the same function, `report_capability` returns the rest of the output, which 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
 
->>>>>>> repo1/master
