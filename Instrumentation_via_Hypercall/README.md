@@ -1,6 +1,6 @@
 # Instrumentation_via_Hypercall
 
-> Modify the profcessor instruction behavior inside KVM hypervisor
+> Modify the processor instruction behavior inside KVM hypervisor
 
 ## Table of contents
 * [Prerequisites](#prerequisites)
@@ -21,9 +21,9 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 ## Answers
 
-1. I did the project myself.
+1. I worked on the project with [Hung Le](https://github.com/HungVLe).
 
-2. For this project, I built on the framework of the VM infrastructure in Assignment 1. To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
+2. For this project, I built on the framework of the VM infrastructure in Assignment 2. To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
     ```
     sudo bash
@@ -39,12 +39,12 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     Linux eccx400-VirtualBox 5.9.0-custom #1 SMP Mon Nov 2 12:13:27 PST 2020 x86_64 x86_64 x86_64 GNU/Linux
     ```
     
-    Find the files in the linux module that need changing. Access the directory in /linux/arch/x86/kvm to find cpuid.c and /linux/arch/x86/kvm/vmx to find vmx.c, which are the two main files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFF. 
-    
-    In vmx.c we modify the atomic counter so that the number of exits can be calculated to store in the registers in cpuid.c. We set a u64 timer, and then whenever we encounter an exit we subtract that from rdtsc() and store it in `exit_time`. After compiling the code with make again, which shouldn't take as long as before, following which I use gcc to run the test program and get the output.
+    Find the files in the linux module that need changing. Access the directory in /linux/arch/x86/kvm to find cpuid.c and /linux/arch/x86/kvm/vmx to find vmx.c, which are the two main files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFE. 
     
 3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisro with instructions such as I/O, HLT, and VMX instructions.
 The process of a full VM boot has around 454923 exits.
+
+4. The most frequent and least frequent exit types in the SDM are...
 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
