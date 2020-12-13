@@ -1,11 +1,17 @@
-# KVM_Modification
+# Instrumentation_via_Hypercall
 
-> Modify the CPUID emulation code in KVM to report back additional information when a special CPUID “leaf function” is called.
+> Modify the profcessor instruction behavior inside KVM hypervisor
 
 ## Table of contents
+* [Prerequisites](#prerequisites)
 * [Answers](#answers)
 * [Output](#output)
 * [Technologies](#technologies)
+
+## Prerequisites
+
+A working KVM modification environment. Setup can be found following the installation manual at [this link](https://github.com/eccx400/Virtualization-Technologies/tree/master/KVM_Modification).
+
 
 ## Output
 
