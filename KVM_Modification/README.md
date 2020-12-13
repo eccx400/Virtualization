@@ -37,7 +37,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     
     In vmx.c we modify the atomic counter so that the number of exits can be calculated to store in the registers in cpuid.c. We set a u64 timer, and then whenever we encounter an exit we subtract that from rdtsc() and store it in `exit_time`. After compiling the code with make again, which shouldn't take as long as before, following which I use gcc to run the test program and get the output.
     
-3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisro with instructions such as I/O, HLT, and VMX instructions.
+3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisor with instructions such as I/O, HLT, and VMX instructions.
 The process of a full VM boot has around 454923 exits.
 
 ## Technologies
