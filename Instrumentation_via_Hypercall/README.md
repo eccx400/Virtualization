@@ -7,6 +7,7 @@
 * [Answers](#answers)
 * [Output](#output)
 * [Technologies](#technologies)
+* [References](#references)
 
 ## Prerequisites
 
@@ -41,6 +42,8 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     
     Find the files in the linux module that need changing. Access the directory in /linux/arch/x86/kvm to find cpuid.c and /linux/arch/x86/kvm/vmx to find vmx.c, which are the two main files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFE. 
     
+    To run the program, we need to create an inner VM from which we can check for exits. We install virt-manager and other dependent files by running 
+    
 3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisor with instructions such as I/O, HLT, and VMX instructions.
 The process of a full VM boot has around 454923 exits.
 
@@ -48,3 +51,9 @@ The process of a full VM boot has around 454923 exits.
 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
+
+## References
+
+Here are some links for installing the Inner VM using Virtual Machine Manager which I followed:
+* https://help.ubuntu.com/community/KVM/VirtManager
+* https://linuxconfig.org/install-and-set-up-kvm-on-ubuntu-20-04-focal-fossa-linux
