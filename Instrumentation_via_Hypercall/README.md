@@ -41,7 +41,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     
     Find the files in the linux module that need changing. Access the directory in /linux/arch/x86/kvm to find cpuid.c and /linux/arch/x86/kvm/vmx to find vmx.c, which are the two main files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFE. 
     
-3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisro with instructions such as I/O, HLT, and VMX instructions.
+3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisor with instructions such as I/O, HLT, and VMX instructions.
 The process of a full VM boot has around 454923 exits.
 
 4. The most frequent and least frequent exit types in the SDM are...
