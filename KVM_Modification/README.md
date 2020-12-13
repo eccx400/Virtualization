@@ -33,7 +33,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     Linux eccx400-VirtualBox 5.9.0-custom #1 SMP Mon Nov 2 12:13:27 PST 2020 x86_64 x86_64 x86_64 GNU/Linux
     ```
     
-    Find the files in the linux module that need changing. Access the directory in /linux/arch/x86 to find cpuid.c and /linux/arch/x86/kvm to find vmx.c, which are the two main    files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFF. 
+    Find the files in the linux module that need changing. Access the directory in /linux/arch/x86/kvm to find cpuid.c and /linux/arch/x86/kvm/vmx to find vmx.c, which are the two main files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFF. 
     
     In vmx.c we modify the atomic counter so that the number of exits can be calculated to store in the registers in cpuid.c. We set a u64 timer, and then whenever we encounter an exit we subtract that from rdtsc() and store it in `exit_time`. After compiling the code with make again, which shouldn't take as long as before, following which I use gcc to run the test program and get the output.
     
