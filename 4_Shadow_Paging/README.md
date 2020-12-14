@@ -11,7 +11,7 @@
 
 ## Prerequisites
 
-A working KVM modification environment with nested paging. Setup can be found following the installation manual at [this link](https://github.com/eccx400/Virtualization-Technologies/tree/master/Instrumentation_via_Hypercall).
+A working KVM modification environment with nested paging. Setup can be found following the installation manual at [this link](https://github.com/eccx400/Virtualization-Technologies/tree/master/3_Instrumentation_via_Hypercall).
 
 
 ## Output
