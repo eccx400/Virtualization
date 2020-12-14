@@ -27,7 +27,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 2. Implementation steps:
 - Before remove modules (Nested Paging), total count for each type of exit handled by KVM
 
-![](./nested paging.jpeg)
+![](./nested_paging.jpeg)
 
 - Remove kvm and kvm-intel modules
 
@@ -39,7 +39,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 - After relod modules (Shadow Paging), total count for each type of exit handled by KVM
 
-![](./shadow paging.jpeg)
+![](./shadow_paging.jpeg)
     
 3. When running the Virtual Machine with Extended Page Tables turned off, we can clearly see that the number of exits increased.
 
