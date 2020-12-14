@@ -22,9 +22,9 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 ## Answers
 
-1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project.Hung focused on writing the code and making sure the implementation was correct, and that the test code showed the output.
+1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project. Hung focused on writing the code and making sure the implementation was correct, and that the test code showed the output.
 
-2. For this project, I built on the framework of the VM infrastructure in [Assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/Instrumentation_via_Hypercall). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
+2. For this project, I built on the framework of the VM infrastructure in [Assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/3_Instrumentation_via_Hypercall). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
     ```
     sudo bash
