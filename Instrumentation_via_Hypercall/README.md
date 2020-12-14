@@ -45,7 +45,7 @@ A working KVM modification environment. Setup can be found following the install
     
     With the inner VM set up, we can then use it to find the number of exits using nested paging. After changing the cpuid.c and vmx files, the make installation code from above is called again, and the test code is compiled using gcc and executed.
     
-3. From the output during execution, we found that the number of exits increase at a relatively stable rate, at around 100-200 exits. Some VM Exits are more common than others, with exits from Exception NMI, External Interrupt being much higher than others exit types such as VMREAD, MOV DR, Triple Fault, etc.
+3. From the output during execution, we found that the number of exits increase at a relatively stable rate, at around 100-200 exits. Some VM Exits are more common than others, with exits from Exception NMI, External Interrupt being much higher than others exit types such as VMREAD, MOV DR, Triple Fault, etc. If an exit does not exist, then the output would be 0.
 
 4. The most frequent exit types are the standard ones used during OS bootup and entry into the nested VM, such as HLT, External Interrupt, Exception NMI, EPT misconfiguration & violation, etc. The least frequent types included VMCLEAR, VMOV DR, Triple Fault, etc.
 
