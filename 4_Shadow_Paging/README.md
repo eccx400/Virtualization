@@ -17,7 +17,7 @@ A working KVM modification environment with nested paging. Setup can be found fo
 1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project. Hung focused on setting up the Virtual Machine and the inner VM, updating the cpuid.c and vmx.c modules, making sure the implementation was correct and produced the right output.
 
 2. Implementation steps:
-    - With the inner VM set up, we can then use it to find the number of exits using nested paging. Before removing the modules (Nested Paging), total count for each type of exit handled by KVM. This done done using the same steps as [assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/3_Instrumentation_via_Hypercall). Use repeated calls to cpuid at leaf 0x4FFFFFFE to record the total exit count information; this completes the nested paging steps. 
+    - With the inner VM set up, we can then use it to find the number of exits using nested paging. Before removing the modules (Nested Paging), total count for each type of exit handled by KVM. This done done using the same steps as [assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/3_Instrumentation_via_Hypercall). Use repeated calls to cpuid at leaf 0x4FFFFFFE to record the total exit count information; this completes the nested paging steps. Image below shows <b>nested paging/EPT </b>:
 
     ![](./nested_paging.jpeg)
 
@@ -29,7 +29,7 @@ A working KVM modification environment with nested paging. Setup can be found fo
 
     ![](./insmod.jpeg)
 
-    - Now because the EPT value is set to 0, the kernel is forced to use shadow paging instead of neested paging. After reloading the kvm-intel modules with insmod (Shadow Paging), we can count total count for each type of exit handled by KVM using shadow paging.
+    - Now because the EPT value is set to 0, the kernel is forced to use shadow paging instead of neested paging. After reloading the kvm-intel modules with insmod (Shadow Paging), we can count total count for each type of exit handled by KVM using shadow paging. Image below shows <b>shadow paging/no-EPT </b>:
 
     ![](./shadow_paging.png)
 
