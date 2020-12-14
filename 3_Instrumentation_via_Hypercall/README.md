@@ -27,7 +27,7 @@ Total Exit Types
 
 ## Answers
 
-1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project. Hung focused on writing the code and making sure the implementation was correct, and that the test code showed the output.
+1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project. Hung focused on setting up the Virtual Machine and the inner VM, updating the cpuid.c and vmx.c modules, making sure the implementation was correct and produced the right output.
 
 2. For this project, I built on the framework of the VM infrastructure in [Assignment 2](https://github.com/eccx400/Virtualization-Technologies/tree/master/2_KVM_Modification). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
