@@ -7,6 +7,7 @@
 * [Answers](#answers)
 * [Output](#output)
 * [Technologies](#technologies)
+* [Contributors](#contributors)
 * [References](#references)
 
 ## Prerequisites
@@ -51,6 +52,13 @@ The process of a full VM boot has around 454923 exits.
 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
+
+## Contributors
+
+| Contributors | GitHub Link                 |
+|--------------|-----------------------------|
+| Eric Cheng   | https://github.com/eccx400/ |
+| Hung Le      | https://github.com/HungVLe  |
 
 ## References
 
