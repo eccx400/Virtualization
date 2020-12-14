@@ -82,6 +82,7 @@ extern atomic64_t number_of_exits;
 extern atomic64_t total_time;
 extern u32 exit_number;
 extern int exit_enabled;
+extern unsigned long long int exits_count[69];
 
 bool __read_mostly enable_vpid = 1;
 module_param_named(vpid, enable_vpid, bool, 0444);
@@ -5951,12 +5952,15 @@ static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 	u64 startTime=rdtsc();
 	//atomic64_inc(&number_of_exits);
 
+	if(exit_reason >= 0 && exit_reason <= 68){
+		++exits_count[exit_reason];
+	}
+
 	/*CMPE 283 Assignment 3*/
 	if (exit_number & exit_reason) {
 		if (!kvm_vmx_exit_handlers[exit_reason]) {
 			exit_enabled = 0;
 		} else {
-			atomic64_inc(&number_of_exits);
 			exit_enabled = 1;
 		}
 	} 

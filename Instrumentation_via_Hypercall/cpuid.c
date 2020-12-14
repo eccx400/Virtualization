@@ -42,6 +42,8 @@ u32 exit_number;
 EXPORT_SYMBOL_GPL(exit_number);
 int exit_enabled = 0;
 EXPORT_SYMBOL_GPL(exit_enabled);
+unsigned long long int exits_count[69];
+EXPORT_SYMBOL(exits_count);
 
 static u32 xstate_required_size(u64 xstate_bv, bool compacted)
 {
@@ -1114,6 +1116,7 @@ EXPORT_SYMBOL_GPL(kvm_cpuid);
 int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 {
 	u32 eax, ebx, ecx, edx;
+	int i;
 
 	if (cpuid_fault_enabled(vcpu) && !kvm_require_cpl(vcpu, 0))
 		return 1;
@@ -1148,11 +1151,17 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 			pr_info("eax = %u, ebx = %u, ecx = %u, edx = %u", eax, ebx, ecx, edx);
 		} else {
 			kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);
-			eax = atomic64_read(&number_of_exits);
+			eax = exits_count[exit_number];
 			if (exit_enabled == 1){
 				edx = 0;
 				ebx = 0;
 				pr_info("The total number of exit %u is %u", exit_number, eax);
+
+				
+				for (i = 0; i < 69; i++)
+    			{
+		    		pr_info("CPUID(0x4FFFFFFE), exit number %d exits=%llu", i, exits_count[i]);
+			   	}   
 			} else {
 				eax = 0;
 				ebx = 0;
