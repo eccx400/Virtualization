@@ -22,7 +22,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 ## Answers
 
-1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project. Hung focused on writing the code and making sure the implementation was correct, and that the test code showed the output.
+1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project. Hung focused on setting up the Virtual Machine and the inner VM, updating the cpuid.c and vmx.c modules, making sure the implementation was correct and produced the right output.
 
 2. For this project, I built on the framework of the VM infrastructure in [Assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/3_Instrumentation_via_Hypercall). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
@@ -44,10 +44,9 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     
    To run the program, we need to create an inner VM from which we can check for exits. We install virt-manager and other dependent files using `sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager` and then changing the <b>/etc/network/interfaces</b> file to create a connection. More instructions can be followed in the [references](#references) section below. After opening up the inner VM and making sure it works, we can continue our assignment.
     
-    With the inner VM set up, we can then use it to find the number of exits using nested paging. After changing the cpuid.c and vmx files, the make installation code from above is called again, and the test code is compiled using gcc and executed.
+    With the inner VM set up, we can then use it to find the number of exits using nested paging. After changing the cpuid.c and vmx files, the make installation code from above is called again, and the test code is compiled using gcc and executed. Use repeated calls to `cpuid` at leaf 0x4FFFFFFE to record the total exit count information; this completes the nested paging steps. To make program run shadow paging instead of nested paging, we must turn the EPT option off. This is done by running the command`insmod /lib/modules/5.10.0-rc2+/kernel/arch/x86/kvm/kvm-intel.ko ept=0`; after running the code segment, the EPT option should be turned off. Check to make sure it is properly turned off:
     
-3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisor with instructions such as I/O, HLT, and VMX instructions.
-The process of a full VM boot has around 454923 exits.
+3. When running the Virtual Machine with Extended Page Tables turned off, we can clearly see that the number of exits increased.
 
 4. The differences between running Nested Paging (EPT) vs Shadow Paging(non-EPT) were...
 
