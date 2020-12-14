@@ -17,10 +17,12 @@ A working KVM modification environment. Setup can be found following the install
 
 ## Output
 
-- List of exit outputs
+List of exit outputs
+
 ![](./output.jpeg)
 
-- Total Exit Types
+Total Exit Types
+
 ![](./fullexit.jpeg)
 
 ## Answers
