@@ -17,7 +17,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 1. I did the project myself.
 
-2. For this project, I built on the framework of the VM infrastructure in Assignment 1. To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
+2. For this project, I built on the framework of the VM infrastructure in [Assignment 1](https://github.com/eccx400/Virtualization-Technologies/tree/master/1_VMX_Config). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
     ```
     sudo bash
