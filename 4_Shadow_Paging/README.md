@@ -1,12 +1,13 @@
 # Shadow_Paging
 
-> Modify the processor instruction behavior inside KVM hypervisor
+> Compare performance between nested paging (EPT) and shadow paging (non-EPT) inside KVM hypervisor
 
 ## Table of contents
 * [Prerequisites](#prerequisites)
 * [Answers](#answers)
 * [Output](#output)
 * [Technologies](#technologies)
+* [Contributors](#contributors)
 
 ## Prerequisites
 
@@ -21,7 +22,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 ## Answers
 
-1. I worked on the project with [Hung Le](https://github.com/HungVLe).
+1. I worked on the project with [Hung Le](https://github.com/HungVLe). I focused on researching how the project should be implemented, dependency files, answering the questions, and preparing the documentation of the project.Hung focused on writing the code and making sure the implementation was correct, and that the test code showed the output.
 
 2. For this project, I built on the framework of the VM infrastructure in [Assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/Instrumentation_via_Hypercall). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
@@ -41,9 +42,9 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
     
     Find the files in the linux module that need changing. Access the directory in /linux/arch/x86/kvm to find cpuid.c and /linux/arch/x86/kvm/vmx to find vmx.c, which are the two main files that we need to complete this project. In cpuid.c, we will need to change the <b>kvm_emulate_cpuid</b> function mentioned in lecture 5 for managing the specific CPUID leaf function %eax=0x4FFFFFFE. 
     
-    To run the program, we need to create an inner VM from which we can check for exits. We install virt-manager and other dependent files using `sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager` and then changing the <b>/etc/network/interfaces</b> file to create a connection. More instructions can be followed in the [references](#references) section below. After opening up the inner VM and making sure it works, we can continue our assignment.
+   To run the program, we need to create an inner VM from which we can check for exits. We install virt-manager and other dependent files using `sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager` and then changing the <b>/etc/network/interfaces</b> file to create a connection. More instructions can be followed in the [references](#references) section below. After opening up the inner VM and making sure it works, we can continue our assignment.
     
-    With the inner VM set up, we can then use it to find the number of exits using nested paging. 
+    With the inner VM set up, we can then use it to find the number of exits using nested paging. After changing the cpuid.c and vmx files, the make installation code from above is called again, and the test code is compiled using gcc and executed.
     
 3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisor with instructions such as I/O, HLT, and VMX instructions.
 The process of a full VM boot has around 454923 exits.
@@ -52,3 +53,10 @@ The process of a full VM boot has around 454923 exits.
 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
+
+## Contributors
+
+| Contributors | GitHub Link                 |
+|--------------|-----------------------------|
+| Eric Cheng   | https://github.com/eccx400/ |
+| Hung Le      | https://github.com/HungVLe  |
