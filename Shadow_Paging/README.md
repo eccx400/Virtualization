@@ -1,4 +1,4 @@
-# Instrumentation_via_Hypercall
+# Shadow-Paging
 
 > Modify the processor instruction behavior inside KVM hypervisor
 
@@ -7,11 +7,10 @@
 * [Answers](#answers)
 * [Output](#output)
 * [Technologies](#technologies)
-* [References](#references)
 
 ## Prerequisites
 
-A working KVM modification environment. Setup can be found following the installation manual at [this link](https://github.com/eccx400/Virtualization-Technologies/tree/master/KVM_Modification).
+A working KVM modification environment with nested paging. Setup can be found following the installation manual at [this link](https://github.com/eccx400/Virtualization-Technologies/tree/master/Instrumentation_via_Hypercall).
 
 
 ## Output
@@ -24,7 +23,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 
 1. I worked on the project with [Hung Le](https://github.com/HungVLe).
 
-2. For this project, I built on the framework of the VM infrastructure in Assignment 2. To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
+2. For this project, I built on the framework of the VM infrastructure in [Assignment 3](https://github.com/eccx400/Virtualization-Technologies/tree/master/Instrumentation_via_Hypercall). To start with configuration, I first cloned the Github Repository for the Linux Kernel [here](https://github.com/torvalds/linux). After cloning to the local machine, I needed to set up the kernel by running the following commands:
 
     ```
     sudo bash
@@ -49,14 +48,7 @@ Output: CPUID(0x4FFFFFFF), exits= 454923, cycles spent in exit= 143924831
 3. The exits do not increase at a stable rate and occur more often during VM exits to the hypervisor with instructions such as I/O, HLT, and VMX instructions.
 The process of a full VM boot has around 454923 exits.
 
-4. The most frequent and least frequent exit types in the SDM are...
+4. The differences between running Nested Paging (EPT) vs Shadow Paging(non-EPT) were...
 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
-
-## References
-
-Here are some links for installing the Inner VM using Virtual Machine Manager which I followed:
-* https://help.ubuntu.com/community/KVM/VirtManager
-* https://linuxconfig.org/install-and-set-up-kvm-on-ubuntu-20-04-focal-fossa-linux
-
