@@ -1,4 +1,4 @@
-# VMX_config
+# VMX_Config
 
 > Create a linux kernel module that queries various MSR to determine virtualization features of the CPU
 
