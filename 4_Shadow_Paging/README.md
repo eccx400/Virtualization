@@ -37,7 +37,7 @@ A working KVM modification environment with nested paging. Setup can be found fo
     
 3. When running the Virtual Machine with Extended Page Tables turned off, we can clearly see that the number of exits increased. This is within our expections, since shadow paging relies on the page fault exiting in order the Shadow Page Table and the TLB to be updated. Running shadow paging requires many types of exits to be turned on, including Load CR3, #PF, Write to CR3, Read from CR3, TLB flushing for free(), etc.  Nested paging eliminates the overhead by having a page table translating from the guest PA to the host PA which acts as the final translation, while the guest page table can be updated with anything. Thus the number of exits, especially by exit number 1 is significantly higher in shadow paging than in nested paging (69866 for EPT vs 142139 for non-EPT).
 
-4. The main reasons for the differences between running Nested Paging (EPT) vs Shadow Paging(non-EPT) are listed above. In summary, the structure of shadow paging requires many more exit types to be turned on, since every translation is managed by the hypervisor using the nested page table.
+4. The main reasons for the differences between running Nested Paging (EPT) vs Shadow Paging(non-EPT) are listed above. In summary, the structure of shadow paging requires many more exit types to be turned on, while in nested paging every translation is managed by the hypervisor using the nested page table, so the amount of exits required is substantially less.
 
 ## Technologies
 * Ubuntu on Oracle Virtualbox
